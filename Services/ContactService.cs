@@ -17,7 +17,7 @@ namespace ContactsApi.Services
             _contactRepository = contactRepository;
         }
 
-        public async Task AddContactAsync(CreateContactDto dto)
+        public async Task<Contact> AddContactAsync(CreateContactDto dto)
         {
             var contact = new Contact
             {
@@ -27,8 +27,10 @@ namespace ContactsApi.Services
                 Phone = dto.Phone,
                 Description = dto.Description,
                 CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
             await _contactRepository.AddContactAsync(contact);
+            return contact;
         }
         public async Task UpdateContactAsync(Guid id, CreateContactDto dto)
         {
