@@ -8,11 +8,11 @@ namespace ContactsApi.Repos
 {
     public interface IContactRepository
     {
-        void AddContact(Contact contact);
-        void UpdateContact(Contact contact);
-        void DeleteContact(Guid id);
-        Contact GetContactById(Guid id);
-        IEnumerable<Contact> GetAllContacts();
-        IEnumerable<Contact> SearchContacts(string searchTerm);
+        Task AddContactAsync(Contact contact);
+        Task UpdateContactAsync(Contact contact);
+        Task DeleteContactAsync(Guid id);
+        Task<Contact> GetContactByIdAsync(Guid id);
+        Task<IEnumerable<Contact>> GetAllContactsAsync();
+        Task<IEnumerable<Contact>> SearchContactsAsync(string searchTerm);
     }
 }
