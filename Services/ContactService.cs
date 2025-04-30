@@ -24,7 +24,7 @@ namespace ContactsApi.Services
                 Id = Guid.NewGuid(),
                 Name = dto.Name,
                 Email = dto.Email,
-                Phone = dto.Phone,
+                Phone = dto.Phone.Replace("(", "").Replace(")", "").Replace("-", "").Trim(),
                 Description = dto.Description,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
