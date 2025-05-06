@@ -44,6 +44,10 @@ namespace ContactsApi.Controllers
             try
             {
                 var contacts = await _contactService.GetAllContacts();
+                if (contacts == null || !contacts.Any())
+                {
+                    return NotFound("No contacts found.");
+                }
                 return Ok(contacts);
             }
             catch (Exception ex)
